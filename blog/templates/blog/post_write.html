@@ -1,0 +1,17 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<form id=frm" method="post" action="/save/">
+{% csrf_token %}
+	<input type="hidden" id="pk" name="pk" value="{% if post %}{{post.pk}}{%endif%}">
+    <div class="post">
+		<div>
+			<p><span> 작성자 : </span><span><input type="text" name="writter"></span></p>
+			<p><span> 제목 : </span><span><input type="text" name="title"></span></p>
+			<p><span> 내 용 : </span><span><textarea name="text" rows="10" cols="50">{{post.text}}</textarea></span></p>
+		</div>
+    </div>
+	<div>
+		<input type="submit" value="저장">
+	</div>
+</form>
+{% endblock %}
